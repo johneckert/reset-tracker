@@ -2,17 +2,30 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { tables } from '../constants';
 
+interface Data {
+  id: string;
+  fields: {
+    Date: string;
+  }
+}
+
+interface Green extends Data {
+  fields: {
+    Date: string;
+  }
+}
+
 export default function useData(catagory: string) {
 
-  const [green, setGreen] = useState([]);
-  const [yellowgreen, setYellowGreen] = useState([]);
-  const [yellow, setYellow] = useState([]);
-  const [orange, setOrange] = useState([]);
-  const [red, setRed] = useState([]);
+  const [green, setGreen] = useState<any[]>([]);
+  const [yellowGreen, setYellowGreen] = useState<any[]>([]);
+  const [yellow, setYellow] = useState<any[]>([]);
+  const [orange, setOrange] = useState<any[]>([]);
+  const [red, setRed] = useState<any[]>([]);
 
   // useEffect(() => {
-  //   setData([green, yellowgreen, yellow, orange, red]);
-  // }, [green, yellowgreen, yellow, orange, red]);
+  //   setData([green, yellowGreen, yellow, orange, red]);
+  // }, [green, yellowGreen, yellow, orange, red]);
   
   const getData = async (catagory: string) => {
     return axios.get(`/${catagory}`).then(res => {
@@ -20,7 +33,7 @@ export default function useData(catagory: string) {
         case 'Green':
           setGreen(res.data.records);
           break;
-        case 'Yellowgreen':
+        case 'YellowGreen':
           setYellowGreen(res.data.records);
           break;
         case 'Yellow':
@@ -44,10 +57,10 @@ export default function useData(catagory: string) {
         getData,
         data: green
       };
-    case 'Yellowgreen':
+    case 'YellowGreen':
       return {
         getData,
-        data: yellowgreen,
+        data: yellowGreen,
       };
     case 'Yellow':
       return {
@@ -67,7 +80,7 @@ export default function useData(catagory: string) {
     default:
       return {
         getData,
-        data: [],
+        data: red,
       };
   }
 };

@@ -1,1 +1,1 @@
-export const tables = ["Green", "Yellowgreen", "Yellow", "Orange", "Red"];
+export const tables = ["Green", "YellowGreen", "Yellow", "Orange", "Red"];
