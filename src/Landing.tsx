@@ -1,21 +1,12 @@
-import React, { useEffect } from "react";
-import useData from "./hooks/useData";
 import { tables } from "./constants";
 import FoodCatagory from "./FoodCatagory";
+import moment from "moment";
 
 export default function Landing() {
-  // const { data, getData } = useData();
-  // useEffect(() => {
-  //   async function onPageLoad() {
-  //     await getData();
-  //   }
-  //   onPageLoad();
-  // }, []);
-
-  // console.log(data);
+  const today = moment().format("dddd MMMM Do");
   return (
     <div className="page">
-      <h3>Airtable data</h3>
+      <h3>{today}</h3>
       {tables.map((table) => <FoodCatagory key={table} name={table}/>)}
     </div>
   );

@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { tables } from '../constants';
 
 interface Data {
   id: string;
@@ -22,12 +21,9 @@ export default function useData(catagory: string) {
   const [yellow, setYellow] = useState<any[]>([]);
   const [orange, setOrange] = useState<any[]>([]);
   const [red, setRed] = useState<any[]>([]);
-
-  // useEffect(() => {
-  //   setData([green, yellowGreen, yellow, orange, red]);
-  // }, [green, yellowGreen, yellow, orange, red]);
   
   const getData = async (catagory: string) => {
+    // swap this for just airtable api?
     return axios.get(`/${catagory}`).then(res => {
       switch(catagory) {
         case 'Green':

@@ -17,13 +17,9 @@
 .card-body {
   color: black;
   text-align: left;
-}
-
-ul {
-  list-style-type: none;
-  text-align: left;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
 }
 
 .container {
@@ -33,19 +29,24 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+  border-radius: 30px;
 }
 
-li {
+.category-row {
+  width: 100%;
+  min-width: 300px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 5px 0;
-  font-size: 18px;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 10px 0;
+
 }
 
 .category-name {
-  padding-right: 200px;
+  font-weight: 900;
+  margin-right: 10px;
 }
 
 span {
@@ -57,27 +58,29 @@ span:first-child {
 }
 
 .container.Green {
-  border: 1px solid green;
+  border: 3px solid green;
 }
 
 .container.YellowGreen {
-  border: 1px solid yellowgreen;
+  border: 3px solid yellowgreen;
 }
 
 .container.Yellow {
-  border: 1px solid yellow;
+  border: 3px solid yellow;
 }
 
 .container.Orange {
-  border: 1px solid orange;
+  border: 3px solid orange;
 }
 
 .container.Red {
-  border: 1px solid red;
+  border: 3px solid red;
 }
 
 .value {
-  padding: 0 10px;
+  width: 2rem;
+  display: inline-block;
+  text-align: center;
 }
 
 .Green {
