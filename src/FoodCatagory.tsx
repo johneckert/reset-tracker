@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useData from "./hooks/useData";
 import moment from "moment";
+import CategoryRow from "./CategoryRow";
 
 interface FoodCatagoryProps {
   name: string;
@@ -44,16 +45,23 @@ const FoodCatagory = ({ name }: FoodCatagoryProps) => {
 
   console.log(name, 'data: ', data);
   return (
-    <>
-      <div>{name}</div>
-      <div>{data.length > 0 ? 'Success!' : 'Fuck!'}</div>
-      <ul>{Object.keys(entry).map((subCatagory) => {
-        console.log(entry);
-        return (
-          <li><span>{subCatagory}</span><span>-</span><span>{entry[subCatagory]}</span><span>+</span></li>
-        )
-      })}</ul>
-    </>
+    <div className={`container ${name}`}>
+      <div className={name}>{name}</div>
+      <div className="card-body">
+        <ul>
+          {Object.keys(entry).map((subCatagory) => {
+            console.log(entry);
+            return (
+              <CategoryRow
+                catagory={name}
+                subCategory={subCatagory}
+                value={entry[subCatagory]}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 }
 
