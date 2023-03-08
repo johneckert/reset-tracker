@@ -22,9 +22,10 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "predeploy": "npm run build-rewired",
-    "deploy": "gh-pages -d build-rewired",
-    "build": "turbo build-rewired",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "turbobuild": "turbo build-rewired",
+    "build": "yarn build",
     "test": "SKIP_VERSION_CHECK=1 react-app-rewired test --detectOpenHandles",
     "start": "turbo start-rewired",
     "start-no-lint": "DISABLE_ESLINT_PLUGIN=true turbo start",
