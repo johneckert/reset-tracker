@@ -1,15 +1,14 @@
-import { TABLES } from "./constants";
+import { TABLES, API_KEY, BASE_ID } from "./constants";
 import { useState } from "react";
 import FoodCatagory from "./FoodCatagory";
 import moment from "moment";
 import Airtable from "airtable";
-import { API_KEY, BASE_ID } from "./ENV";
 
 const Landing = () => {
   const [needStart, setNeedStart] = useState(true);
   const BASE = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
   const today = moment().format("YYYY-MM-DD");
-  
+
 
 
   const handleStartDay = () => {

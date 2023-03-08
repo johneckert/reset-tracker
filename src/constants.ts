@@ -61,3 +61,6 @@ export const TABLES = [
     ],
   },
 ];
+
+export const BASE_ID = "appEMdnidZftynqdK";
+export const API_KEY = "keyZ45rUNype5TblZ";

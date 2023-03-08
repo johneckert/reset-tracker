@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { TABLES } from "./constants";
 import CategoryRow from "./CategoryRow";
 import moment from "moment";
