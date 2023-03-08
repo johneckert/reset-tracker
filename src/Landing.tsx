@@ -9,6 +9,7 @@ const Landing = () => {
   const [needStart, setNeedStart] = useState(true);
   const BASE = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
   const today = moment().format("YYYY-MM-DD");
+  
 
 
   const handleStartDay = () => {
@@ -40,7 +41,7 @@ const Landing = () => {
         }
       );
     });
-    window.location.reload();
+    setNeedStart(false);
   };
 
   return (
