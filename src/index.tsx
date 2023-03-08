@@ -3,18 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Airtable from 'airtable';
-import axios from 'axios';
-import {BASE_ID, API_KEY} from './ENV';
 
-//create a new Airtable object in React
-new Airtable({ apiKey: API_KEY }).base(BASE_ID);
-//base endpoint to call with each request
-axios.defaults.baseURL = `https://api.airtable.com/v0/${BASE_ID}/`;
-//content type to send with all POST requests
-axios.defaults.headers.post["Content-Type"] = "application/json";
-//authenticate to the base with the API key
-axios.defaults.headers["Authorization"] = `Bearer ${API_KEY}`;
+// //create a new Airtable object in React
+// new Airtable({ apiKey: API_KEY }).base(BASE_ID);
+// //base endpoint to call with each request
+// axios.defaults.baseURL = `https://api.airtable.com/v0/${BASE_ID}/`;
+// //content type to send with all POST requests
+// axios.defaults.headers.post["Content-Type"] = "application/json";
+// //authenticate to the base with the API key
+// axios.defaults.headers["Authorization"] = `Bearer ${API_KEY}`;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

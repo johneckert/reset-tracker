@@ -1,73 +1,90 @@
-import { useEffect, useState } from "react";
-import useData from "./hooks/useData";
-import moment from "moment";
+import { useEffect, useState, useRef } from "react";
+import { TABLES } from "./constants";
 import CategoryRow from "./CategoryRow";
-import { API_KEY, BASE_ID } from "./ENV";
-import Airtable from "airtable";
+import moment from "moment";
 
 interface FoodCatagoryProps {
   name: string;
+  base: any;
 }
 
 
 
-const FoodCatagory = ({ name }: FoodCatagoryProps) => {
-  const { data, getData } = useData(name);
-  const today = moment().format('YYYY-MM-DD');
-  const [record, setRecord] = useState<any>(null);
-  const [entry, setEntry] = useState<any>({});
-     
+const FoodCatagory = ({ name, base }: FoodCatagoryProps) => {
+  const [todayRecord, setTodayRecord] = useState<any>({});
+  const [id, setId] = useState<any>(null); // this is the id of the record for today
+  const [data, setData] = useState<any>([]); // this is the data from the airtable
+  const today = moment().format("YYYY-MM-DD");
+  const tableInfo = TABLES.find((table: any) => table.name === name);
+  const defaultFieldValues = {};
+  tableInfo?.fields.forEach((field: any) => {
+    // @ts-ignore
+    defaultFieldValues[field] = 0;
+  });
+
   useEffect(() => {
-    async function onPageLoad() {
-      await getData(name);
-    }
-    onPageLoad();
+    fetchData();
   }, []);
 
-  const updateTable = (subCatagory:string, value: number) => {
-    const recordData = {
-      "id": record.id,
-      "fields": {
-        "Date": record.fields.Date,
-        [`${subCatagory}`]: value,
+  useEffect(() => {
+    const todayRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
+    console.log('filter: ', todayRecord)
+    setTodayRecord(todayRecord?.fields);
+    setId(todayRecord.id);
+  }, [data]);
+
+  const fetchData = () => {
+    base(name)
+    .select({
+      // Selecting the first 3 records in Grid view:
+      maxRecords: 3,
+      view: "Grid view",
+    })
+    .eachPage(
+      function page(records: any, fetchNextPage: any) {
+        // This function (`page`) will get called for each page of records.
+        const fetchedRecords = records.map((record: any) => ({ fields: record.fields, id: record.id }));
+        setData(fetchedRecords);
+
+        fetchNextPage();
       },
-    };
-    var base = new Airtable({apiKey: API_KEY}).base(BASE_ID);
-    base('Green').update([recordData]);
+      function done(err: any) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      }
+    );
   };
 
-
-  useEffect(() => {
-    const todayEntry = data.filter((record) => {
-      const date = record.fields.Date;
-      return date === today;
-      
-    });
-    if (todayEntry.length !== 0) {
-      setRecord(todayEntry[0]);
-      const fields = Object.keys(todayEntry[0].fields);
-      const parsedEntry = {};
-      fields.forEach((field) => {
-        if (field !== "Date") {
-          // @ts-ignore
-          parsedEntry[field] = todayEntry[0].fields[field];
-        }
-      });
-      setEntry(parsedEntry);
+  const updateTable = (subname:string, value: number) => {
+    console.log('update: ', data);
+    const recordData = {
+      "id": id,
+      "fields": {
+        "Date": todayRecord.Date,
+        [`${subname}`]: value,
+      },
     };
-  }, [data, today]);
+    base(name).update([recordData]);
+  };
+  console.log(today);
+  console.log(data);
+
+  console.log('TR: ', todayRecord);
 
   return (
     <div className={`container ${name}`}>
       <div className={name}>{name}</div>
       <div className="card-body">
-        {Object.keys(entry).map((subCatagory) => {
+        {todayRecord && Object.keys(todayRecord).map((subCatagory) => {
+          if (subCatagory === "Date") return null;
           return (
             <CategoryRow
               key={subCatagory}
               catagory={name}
               subCategory={subCatagory || "Loading..."}
-              value={entry[subCatagory]}
+              value={todayRecord[subCatagory]}
               updateTable={updateTable}
             />
           );
