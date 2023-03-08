@@ -27,10 +27,10 @@ const FoodCatagory = ({ name, base }: FoodCatagoryProps) => {
   }, []);
 
   useEffect(() => {
-    const todayRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
-    console.log('filter: ', todayRecord)
-    setTodayRecord(todayRecord?.fields);
-    setId(todayRecord.id);
+    const filteredRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
+    console.log("filter: ", filteredRecord);
+    setTodayRecord(filteredRecord?.fields);
+    setId(filteredRecord?.id);
   }, [data]);
 
   const fetchData = () => {
