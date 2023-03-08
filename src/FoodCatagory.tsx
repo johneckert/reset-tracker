@@ -6,11 +6,12 @@ import moment from "moment";
 interface FoodCatagoryProps {
   name: string;
   base: any;
+  setNeedStart: (needStart: boolean) => void;
 }
 
 
 
-const FoodCatagory = ({ name, base }: FoodCatagoryProps) => {
+const FoodCatagory = ({ name, base, setNeedStart }: FoodCatagoryProps) => {
   const [todayRecord, setTodayRecord] = useState<any>({});
   const [id, setId] = useState<any>(null); // this is the id of the record for today
   const [data, setData] = useState<any>([]); // this is the data from the airtable
@@ -29,8 +30,12 @@ const FoodCatagory = ({ name, base }: FoodCatagoryProps) => {
   useEffect(() => {
     const filteredRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
     console.log("filter: ", filteredRecord);
-    setTodayRecord(filteredRecord?.fields);
-    setId(filteredRecord?.id);
+    if (!filteredRecord) {
+    } else {
+      setTodayRecord(filteredRecord?.fields);
+      setId(filteredRecord?.id);
+      setNeedStart(false);
+    }
   }, [data]);
 
   const fetchData = () => {

@@ -1,12 +1,16 @@
 import { TABLES } from "./constants";
+import { useState } from "react";
 import FoodCatagory from "./FoodCatagory";
 import moment from "moment";
 import Airtable from "airtable";
 import { API_KEY, BASE_ID } from "./ENV";
 
 const Landing = () => {
+  const [needStart, setNeedStart] = useState(true);
   const BASE = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
   const today = moment().format("YYYY-MM-DD");
+
+
   const handleStartDay = () => {
     TABLES.forEach((table: any) => {
       const defaultFieldValues = {};
@@ -42,9 +46,9 @@ const Landing = () => {
   return (
     <div className="page">
       <h3>{today}</h3>
-      <button onClick={handleStartDay}>Start Day</button>
+      {needStart && <button className="startDay" onClick={handleStartDay}>Start Day</button>}
       {TABLES.map((table: any) => {
-        return <FoodCatagory key={table.name} name={table.name} base={BASE}/>
+        return <FoodCatagory key={table.name} name={table.name} base={BASE} setNeedStart={setNeedStart} />
       })};
     </div>
 

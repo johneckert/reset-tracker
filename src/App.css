@@ -3,6 +3,20 @@
   width: 100%;
   display: flex;
 }
+
+.startDay {
+  width: 90%;
+  height: '50px';
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: lightblue;
+  padding: 15px;
+  font-weight: 900;
+  color: white;
+  font-size: 14px;
+}
+
 .page {
   margin: 0 auto;
   width: 100%;
