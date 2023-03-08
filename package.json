@@ -1,6 +1,7 @@
 {
-  "name": "cat-game-fe",
+  "name": "reset-tracker",
   "version": "0.0.1",
+  "homepage": "https://johneckert.github.io/reset-tracker}",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -21,6 +22,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "turbo build-rewired",
     "test": "SKIP_VERSION_CHECK=1 react-app-rewired test --detectOpenHandles",
     "start": "turbo start-rewired",
@@ -68,6 +71,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^5.0.0",
     "lint": "^0.8.19",
     "lint-staged": "^10.5.1",
     "prettier": "2.1.2",
