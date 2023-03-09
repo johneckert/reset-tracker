@@ -9,7 +9,9 @@ const Landing = () => {
   const BASE = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
   const today = moment().format("YYYY-MM-DD");
 
-
+  const handleRefresh = () => {
+    window.location.reload();
+  }
 
   const handleStartDay = () => {
     TABLES.forEach((table: any) => {
@@ -46,12 +48,26 @@ const Landing = () => {
   return (
     <div className="page">
       <h3>{today}</h3>
-      {needStart && <button className="startDay" onClick={handleStartDay}>Start Day</button>}
+      {needStart && (
+        <button className="startDay" onClick={handleStartDay}>
+          Start Day
+        </button>
+      )}
       {TABLES.map((table: any) => {
-        return <FoodCatagory key={table.name} name={table.name} servings={table.servings} base={BASE} setNeedStart={setNeedStart} />
-      })};
+        return (
+          <FoodCatagory
+            key={table.name}
+            name={table.name}
+            servings={table.servings}
+            base={BASE}
+            setNeedStart={setNeedStart}
+          />
+        );
+      })}
+      <button className="startDay" onClick={handleRefresh}>
+        Refresh
+      </button>
     </div>
-
   );
 }
 
