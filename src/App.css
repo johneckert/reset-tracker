@@ -11,7 +11,7 @@
   align-items: center;
   margin-bottom: 20px;
   border-radius: 10px;
-  background-color: lightblue;
+  background-color: #647AA3;
   padding: 15px;
   font-weight: 900;
   color: white;
@@ -45,7 +45,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  border-radius: 30px;
+  border-radius: 10px;
   background-color: #FAFAFA;
   filter: drop-shadow(4px 4px 4px #54494B);
 }
