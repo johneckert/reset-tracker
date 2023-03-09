@@ -7,7 +7,7 @@
 
 .startDay {
   width: 90%;
-  height: '50px';
+  height: '3px';
   align-items: center;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -49,6 +49,10 @@
   background-color: #FAFAFA;
   padding-bottom: 50px !important;
   filter: drop-shadow(4px 4px 4px #54494B);
+}
+
+.clicker-box {
+  min-width: 105px;
 }
 
 
@@ -105,10 +109,14 @@ span:first-child {
 }
 
 .value {
-  width: 2rem;
+  width: 32px;
   display: inline-block;
+  vertical-align: center;
+  line-height: 16px;
   text-align: center;
+  font-size: 16px;
   color: #242423;
+  margin-right: 0px !important;
 }
 
 .Green {
@@ -149,7 +157,7 @@ span:first-child {
   font-weight: 900;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 .YellowGreen button {
   background: #BCE784;
@@ -157,7 +165,7 @@ span:first-child {
   font-weight: 900;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 .Yellow button {
   background: #F8C630;
@@ -165,7 +173,7 @@ span:first-child {
   font-weight: 900;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 .Orange button {
   background: #EE6123;
@@ -173,7 +181,7 @@ span:first-child {
   font-weight: 900;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 .Red button {
   background: #9C0D38;
@@ -181,5 +189,5 @@ span:first-child {
   font-weight: 900;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 30%;
 }
