@@ -47,7 +47,13 @@
   margin-bottom: 20px;
   border-radius: 10px;
   background-color: #FAFAFA;
+  padding-bottom: 50px !important;
   filter: drop-shadow(4px 4px 4px #54494B);
+  max-width: 500px;
+}
+
+.category-name {
+  min-width: 270px;
 }
 
 .servings {
@@ -115,6 +121,7 @@ span:first-child {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .YellowGreen {
   color: #BCE784;
   font-weight: 900;
@@ -179,5 +186,9 @@ span:first-child {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+}
+
+button {
+    max-width: 500px;
 }
 

@@ -10,7 +10,7 @@ interface CategoryRowProps {
 const CategoryRow = ({ catagory, subCategory, value, updateTable }: CategoryRowProps) => {
   console.log('CR: ', catagory, subCategory, value);
   const [newValue, setNewValue] = useState(value);
-  const formattedName = subCategory.match(/([A-Z]?[^A-Z]*)/g)?.slice(0,-1).join(" ") ;
+  const formattedName = subCategory.split('-').join(', ').match(/([A-Z]?[^A-Z]*)/g)?.slice(0,-1).join(" ") ;
   
   const handleIncrement = () => {
     if (newValue < 10) {
