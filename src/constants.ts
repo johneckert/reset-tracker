@@ -1,6 +1,7 @@
 export const TABLES = [
   {
     name: "Green",
+    servings: "Unlimited",
     fields: [
       "Date",
       "Vegetables",
@@ -15,18 +16,12 @@ export const TABLES = [
   },
   {
     name: "YellowGreen",
-    fields: [
-      "Date",
-      "Eggs",
-      "Milk",
-      "Game",
-      "NutOils",
-      "Chocolate",
-      "Tofu",
-    ],
+    servings: "2 per day",
+    fields: ["Date", "Eggs", "Milk", "Game", "NutOils", "Chocolate", "Tofu"],
   },
   {
     name: "Yellow",
+    servings: "1 per day",
     fields: [
       "Date",
       "IntactWholeGrains",
@@ -37,15 +32,12 @@ export const TABLES = [
   },
   {
     name: "Orange",
-    fields: [
-      "Date",
-      "RedMeat",
-      "UncuredSausage",
-      "VegetableOil",
-    ],
+    servings: "2 per week",
+    fields: ["Date", "RedMeat", "UncuredSausage", "VegetableOil"],
   },
   {
     name: "Red",
+    servings: "As few as possible.",
     fields: [
       "Date",
       "ProcessedWholeGrains",

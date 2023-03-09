@@ -2,6 +2,7 @@
   text-align: center;
   width: 100%;
   display: flex;
+  background: #F0F0F0;
 }
 
 .startDay {
@@ -29,7 +30,7 @@
 }
 
 .card-body {
-  color: black;
+  color: #4C5C68;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -45,6 +46,16 @@
   align-items: center;
   margin-bottom: 20px;
   border-radius: 30px;
+  background-color: #FAFAFA;
+  filter: drop-shadow(4px 4px 4px #54494B);
+}
+
+.servings {
+  color: #424B54;
+  font-size: '12px';
+  font-weight: 300;
+    padding-bottom: 20px;
+
 }
 
 .category-row {
@@ -72,54 +83,65 @@ span:first-child {
 }
 
 .container.Green {
-  border: 3px solid green;
+  border: 3px solid #00916E;
 }
 
 .container.YellowGreen {
-  border: 3px solid yellowgreen;
+  border: 3px solid #BCE784;
 }
 
 .container.Yellow {
-  border: 3px solid yellow;
+  border: 3px solid #F8C630;
 }
 
 .container.Orange {
-  border: 3px solid orange;
+  border: 3px solid #EE6123;
 }
 
 .container.Red {
-  border: 3px solid red;
+  border: 3px solid #9C0D38;
 }
 
 .value {
   width: 2rem;
   display: inline-block;
   text-align: center;
+  color: #242423;
 }
 
 .Green {
-  color: green;
+  color: #00916E;
   font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .YellowGreen {
-  color: yellowgreen;
-    font-weight: 900;
+  color: #BCE784;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .Yellow {
-  color: yellow;
-    font-weight: 900;
+  color: #F8C630;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .Orange {
-  color: orange;
-    font-weight: 900;
+  color: #EE6123;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .Red {
-  color: red;
-    font-weight: 900;
+  color: #9C0D38;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .Green button {
-  background: green;
+  background: #00916E;
   color: white;
   font-weight: 900;
   width: 2rem;
@@ -127,7 +149,7 @@ span:first-child {
   border-radius: 50%;
 }
 .YellowGreen button {
-  background: yellowgreen;
+  background: #BCE784;
   color: white;
   font-weight: 900;
   width: 2rem;
@@ -135,7 +157,7 @@ span:first-child {
   border-radius: 50%;
 }
 .Yellow button {
-  background: yellow;
+  background: #F8C630;
   color: white;
   font-weight: 900;
   width: 2rem;
@@ -143,7 +165,7 @@ span:first-child {
   border-radius: 50%;
 }
 .Orange button {
-  background: orange;
+  background: #EE6123;
   color: white;
   font-weight: 900;
   width: 2rem;
@@ -151,7 +173,7 @@ span:first-child {
   border-radius: 50%;
 }
 .Red button {
-  background: red;
+  background: #9C0D38;
   color: white;
   font-weight: 900;
   width: 2rem;

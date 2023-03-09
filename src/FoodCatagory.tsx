@@ -6,12 +6,13 @@ import moment from "moment";
 interface FoodCatagoryProps {
   name: string;
   base: any;
+  servings: string;
   setNeedStart: (needStart: boolean) => void;
 }
 
 
 
-const FoodCatagory = ({ name, base, setNeedStart }: FoodCatagoryProps) => {
+const FoodCatagory = ({ name, servings, base, setNeedStart }: FoodCatagoryProps) => {
   const [todayRecord, setTodayRecord] = useState<any>({});
   const [id, setId] = useState<any>(null); // this is the id of the record for today
   const [data, setData] = useState<any>([]); // this is the data from the airtable
@@ -81,6 +82,7 @@ const FoodCatagory = ({ name, base, setNeedStart }: FoodCatagoryProps) => {
   return (
     <div className={`container ${name}`}>
       <div className={name}>{name}</div>
+      <div className="servings">{servings}</div>
       <div className="card-body">
         {todayRecord && Object.keys(todayRecord).map((subCatagory) => {
           if (subCatagory === "Date") return null;

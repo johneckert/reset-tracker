@@ -32,7 +32,7 @@ const CategoryRow = ({ catagory, subCategory, value, updateTable }: CategoryRowP
       <span className="category-name">{formattedName}</span>
       <span>
         <button onClick={handleDecrement}>-</button>
-        <span className={`${catagory} value`}>{newValue}</span>
+        <span className={`value`}>{newValue}</span>
         <button onClick={handleIncrement}>+</button>
       </span>
     </div>

@@ -48,7 +48,7 @@ const Landing = () => {
       <h3>{today}</h3>
       {needStart && <button className="startDay" onClick={handleStartDay}>Start Day</button>}
       {TABLES.map((table: any) => {
-        return <FoodCatagory key={table.name} name={table.name} base={BASE} setNeedStart={setNeedStart} />
+        return <FoodCatagory key={table.name} name={table.name} servings={table.servings} base={BASE} setNeedStart={setNeedStart} />
       })};
     </div>
 
