@@ -49,11 +49,6 @@
   background-color: #FAFAFA;
   padding-bottom: 50px !important;
   filter: drop-shadow(4px 4px 4px #54494B);
-  max-width: 500px;
-}
-
-.category-name {
-  min-width: 270px;
 }
 
 .servings {
@@ -187,8 +182,3 @@ span:first-child {
   height: 2rem;
   border-radius: 50%;
 }
-
-button {
-    max-width: 500px;
-}
-
