@@ -48,7 +48,7 @@ export const TABLES = [
       "FriedFood",
       "ProcessedSnacks",
       "Candy",
-      "FruitJuice",
+      "FruitJuice-Soda-EnergyDrinks",
       "CuredMeats",
     ],
   },

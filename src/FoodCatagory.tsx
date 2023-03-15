@@ -31,8 +31,7 @@ const FoodCatagory = ({ name, servings, base, setNeedStart }: FoodCatagoryProps)
   useEffect(() => {
     const filteredRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
     console.log("filter: ", filteredRecord);
-    if (!filteredRecord) {
-    } else {
+    if (filteredRecord) {
       setTodayRecord(filteredRecord?.fields);
       setId(filteredRecord?.id);
       setNeedStart(false);
