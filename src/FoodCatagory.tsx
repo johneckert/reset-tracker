@@ -25,10 +25,6 @@ const FoodCatagory = ({ name, servings, base, setNeedStart }: FoodCatagoryProps)
   });
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     const filteredRecord = data.filter((record: any) => record?.fields?.Date === today)[0];
     console.log("filter: ", filteredRecord);
     if (filteredRecord) {
@@ -36,31 +32,38 @@ const FoodCatagory = ({ name, servings, base, setNeedStart }: FoodCatagoryProps)
       setId(filteredRecord?.id);
       setNeedStart(false);
     }
-  }, [data]);
+  }, [data, setNeedStart, today]);
 
-  const fetchData = () => {
-    base(name)
-    .select({
-      // Selecting the first 3 records in Grid view:
-      maxRecords: 3,
-      view: "Grid view",
-    })
-    .eachPage(
-      function page(records: any, fetchNextPage: any) {
-        // This function (`page`) will get called for each page of records.
-        const fetchedRecords = records.map((record: any) => ({ fields: record.fields, id: record.id }));
-        setData(fetchedRecords);
+    useEffect(() => {
+      const fetchData = () => {
+        base(name)
+          .select({
+            // Selecting the first 3 records in Grid view:
+            maxRecords: 3,
+            view: "Grid view",
+          })
+          .eachPage(
+            function page(records: any, fetchNextPage: any) {
+              // This function (`page`) will get called for each page of records.
+              const fetchedRecords = records.map((record: any) => ({
+                fields: record.fields,
+                id: record.id,
+              }));
+              setData(fetchedRecords);
 
-        fetchNextPage();
-      },
-      function done(err: any) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-      }
-    );
-  };
+              fetchNextPage();
+            },
+            function done(err: any) {
+              if (err) {
+                console.error(err);
+                return;
+              }
+            }
+          );
+      };
+
+      fetchData();
+    }, [base, name]);
 
   const updateTable = (subname:string, value: number) => {
     console.log('update: ', data);
